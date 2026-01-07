@@ -18,7 +18,7 @@
                     <h1>Le sujet</h1>
                     <h2>الفاعل في اللغة الفرنسية</h2>
                 </div>
-                <button class="start-btn" onclick="showPage('welcomePage')">
+                <button class="start-btn" onclick="showPage('introPage')">
                     ابدأ
                 </button>
             </div>
@@ -34,14 +34,14 @@
             <div class="welcome-content-box">
                 <div class="welcome-left">
                     <div class="audio-icon" onclick="event.stopPropagation(); playWelcomeAudio();">🔊</div>
-                    <img src="images/welcome-trophy.png" alt="Trophy" class="trophy-img" onerror="this.style.display='none'">
+                    <img src="images/objectivechar.png" alt="Character" class="welcome-character-left" onerror="this.style.display='none'">
                 </div>
                 
                 <div class="welcome-center">
                     <div class="welcome-message">
                         <p>Bienvenue, cher élève, dans votre parcours éducatif interactif, où vous trouverez un contenu adapté à vos capacités et qui suit vos progrès étape par étape.</p>
                     </div>
-                    <button class="content-btn" onclick="showPage('stylesPage')">
+                    <button class="content-btn" onclick="showPage('modulesPage')">
                         Le contenu éducatif
                     </button>
                 </div>
@@ -54,27 +54,41 @@
     </div>
 
     <!-- ====================================
+         INTRO PAGE - صفحة المقدمة
+         ==================================== -->
+    <div id="introPage" class="page">
+        <div class="intro-container">
+            <video id="introVideo" autoplay muted class="intro-video">
+                <source src="intro.mp4" type="video/mp4">
+                المتصفح لا يدعم تشغيل الفيديو
+            </video>
+            <button class="skip-intro-btn" id="skipIntroBtn" style="display: none;" onclick="showPage('stylesPage')">
+                تخطي المقدمة ⏭
+            </button>
+        </div>
+    </div>
+
+    <!-- ====================================
          LEARNING STYLES PAGE - صفحة اختيار النمط
          ==================================== -->
     <div id="stylesPage" class="page">
         <div class="styles-container">
-            <h2 class="styles-title">اختر نمط التعلم المناسب لك 🎨</h2>
-            <p class="styles-subtitle">كل شخص يتعلم بطريقة مختلفة. اختر النمط الذي يناسبك للحصول على أفضل تجربة تعليمية</p>
+            <h2 class="styles-title">أدخل بياناتك واختر نمط التعلم</h2>
             
-            <div class="styles-grid">
-                <div class="style-card visual" onclick="selectLearningStyle('111')">
-                    <div class="style-icon">👁️</div>
-                    <h3>النمط البصري السمعي</h3>
-                    <p>يعتمد على الصور والرسوم مع الصوت</p>
-                    <span class="style-code">111</span>
+            <div class="styles-form">
+                <div class="form-group-style">
+                    <label>الاسم:</label>
+                    <input type="text" id="studentName" placeholder="أدخل اسمك" class="style-input">
                 </div>
-
-                <div class="style-card auditory" onclick="selectLearningStyle('222')">
-                    <div class="style-icon">👂</div>
-                    <h3>النمط السمعي</h3>
-                    <p>يعتمد على الاستماع والصوت فقط</p>
-                    <span class="style-code">222</span>
+                
+                <div class="form-group-style">
+                    <label>رقم النمط (111 أو 222):</label>
+                    <input type="text" id="styleNumber" placeholder="111 أو 222" class="style-input" maxlength="3">
                 </div>
+                
+                <button class="btn btn-primary" onclick="submitLearningStyle()" style="margin-top: 30px; font-size: 1.4rem; padding: 18px 50px;">
+                    دخول
+                </button>
             </div>
         </div>
     </div>
