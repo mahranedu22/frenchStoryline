@@ -7,7 +7,8 @@ let currentLearningStyle = null;
 let currentModuleId = null;
 let currentLessonId = null;
 let currentLessonTab = 'objectives';
-let currentAudio = null; // للتحكم في الصوت الحالي
+let currentAudio = null;
+let studentName = '';
 
 /* ====================================
    PAGE NAVIGATION - التنقل بين الصفحات
@@ -341,8 +342,38 @@ function loadActivitiesContent(container) {
    LEARNING STYLE SELECTION
    ==================================== */
 
+function submitLearningStyle() {
+    playClickSound();
+    
+    const name = document.getElementById('studentName').value.trim();
+    const styleCode = document.getElementById('styleNumber').value.trim();
+    
+    if (!name) {
+        alert('يرجى إدخال اسمك');
+        return;
+    }
+    
+    if (styleCode !== '111' && styleCode !== '222') {
+        alert('نمط غير صحيح! يرجى إدخال 111 أو 222');
+        return;
+    }
+    
+    studentName = name;
+    currentLearningStyle = styleCode;
+    
+    // Save to localStorage
+    try {
+        localStorage.setItem('studentName', name);
+        localStorage.setItem('currentLearningStyle', styleCode);
+    } catch(e) {
+        console.log('Cannot save to localStorage');
+    }
+    
+    showPage('welcomePage');
+}
+
 function selectLearningStyle(styleCode) {
-    // Play click sound
+    // This function is now deprecated but kept for compatibility
     playClickSound();
     
     const validStyles = ['111', '222', '333'];
@@ -372,11 +403,15 @@ window.addEventListener('DOMContentLoaded', () => {
     // Try to load saved learning style
     try {
         const savedStyle = localStorage.getItem('currentLearningStyle');
+        const savedName = localStorage.getItem('studentName');
         if (savedStyle) {
             currentLearningStyle = savedStyle;
         } else {
             // Default to visual style
             currentLearningStyle = '111';
+        }
+        if (savedName) {
+            studentName = savedName;
         }
     } catch(e) {
         currentLearningStyle = '111';
@@ -390,6 +425,22 @@ window.addEventListener('DOMContentLoaded', () => {
             stopCurrentAudio();
         }
     });
+    
+    // Setup intro video
+    const introVideo = document.getElementById('introVideo');
+    const skipBtn = document.getElementById('skipIntroBtn');
+    
+    if (introVideo && skipBtn) {
+        // Show skip button after 3 seconds
+        setTimeout(() => {
+            skipBtn.style.display = 'block';
+        }, 3000);
+        
+        // Auto-skip when video ends
+        introVideo.addEventListener('ended', () => {
+            showPage('stylesPage');
+        });
+    }
     
     console.log('French Learning Platform Initialized');
     console.log('Current Learning Style:', currentLearningStyle);
