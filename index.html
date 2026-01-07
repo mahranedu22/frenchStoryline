@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعليم اللغة الفرنسية - French Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====================================
+         LANDING PAGE - صفحة الهبوط
+         ==================================== -->
+    <div id="landingPage" class="page active">
+        <div class="landing-container">
+            <div class="landing-background">
+                <div class="landing-title">
+                    <h1>Le sujet</h1>
+                    <h2>الفاعل في اللغة الفرنسية</h2>
+                </div>
+                <button class="start-btn" onclick="showPage('welcomePage')">
+                    ابدأ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         WELCOME PAGE - صفحة الترحيب
+         ==================================== -->
+    <div id="welcomePage" class="page">
+        <div class="welcome-container">
+            <!-- Welcome Content -->
+            <div class="welcome-content-box">
+                <div class="welcome-left">
+                    <div class="audio-icon" onclick="event.stopPropagation(); playWelcomeAudio();">🔊</div>
+                    <img src="images/welcome-trophy.png" alt="Trophy" class="trophy-img" onerror="this.style.display='none'">
+                </div>
+                
+                <div class="welcome-center">
+                    <div class="welcome-message">
+                        <p>Bienvenue, cher élève, dans votre parcours éducatif interactif, où vous trouverez un contenu adapté à vos capacités et qui suit vos progrès étape par étape.</p>
+                    </div>
+                    <button class="content-btn" onclick="showPage('stylesPage')">
+                        Le contenu éducatif
+                    </button>
+                </div>
+                
+                <div class="welcome-right">
+                    <img src="images/welcome-character.png" alt="Character" class="welcome-character" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         LEARNING STYLES PAGE - صفحة اختيار النمط
+         ==================================== -->
+    <div id="stylesPage" class="page">
+        <div class="styles-container">
+            <h2 class="styles-title">اختر نمط التعلم المناسب لك 🎨</h2>
+            <p class="styles-subtitle">كل شخص يتعلم بطريقة مختلفة. اختر النمط الذي يناسبك للحصول على أفضل تجربة تعليمية</p>
+            
+            <div class="styles-grid">
+                <div class="style-card visual" onclick="selectLearningStyle('111')">
+                    <div class="style-icon">👁️</div>
+                    <h3>النمط البصري السمعي</h3>
+                    <p>يعتمد على الصور والرسوم مع الصوت</p>
+                    <span class="style-code">111</span>
+                </div>
+
+                <div class="style-card auditory" onclick="selectLearningStyle('222')">
+                    <div class="style-icon">👂</div>
+                    <h3>النمط السمعي</h3>
+                    <p>يعتمد على الاستماع والصوت فقط</p>
+                    <span class="style-code">222</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         OBJECTIVES PAGE - صفحة الأهداف
+         ==================================== -->
+    <div id="objectivesPage" class="page">
+        <div class="objectives-container">
+            <div class="objectives-board">
+                <!-- محتوى الأهداف سيكون في الصورة -->
+            </div>
+            <button class="start-btn" onclick="showPage('modulesPage')" 
+                    style="position: absolute; bottom: 10%; left: 10%;">
+                تخطى المقدمة
+            </button>
+        </div>
+    </div>
+
+    <!-- ====================================
+         MODULES PAGE - صفحة الموديولات
+         ==================================== -->
+    <div id="modulesPage" class="page">
+        <div class="modules-scene">
+            <div class="modules-grid-container" id="modulesGrid">
+                <!-- Modules will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         LESSON PAGE - صفحة الدرس
+         ==================================== -->
+    <div id="lessonPage" class="page">
+        <!-- Lesson Title ABOVE the board -->
+        <div class="lesson-title-outside" id="lessonTitleOutside">
+            <!-- Title will be set dynamically -->
+        </div>
+        
+        <div class="lesson-layout">
+            <!-- Main Content Area -->
+            <div class="lesson-main-area">
+                <div class="content-area" id="mainContentArea">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Sidebar Navigation -->
+            <div class="lesson-sidebar">
+                <button class="sidebar-btn" id="btnObjectives" onclick="switchLessonTab('objectives')">
+                    Les objectifs
+                </button>
+                <button class="sidebar-btn" id="btnContent" onclick="switchLessonTab('content')">
+                    Le contenu
+                </button>
+                <button class="sidebar-btn" id="btnActivities" onclick="switchLessonTab('activities')">
+                    les activités
+                </button>
+                
+                <button class="home-btn" onclick="goToHome()">
+                    🏠
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         SCRIPTS - السكريبتات
+         ==================================== -->
+    <script src="data.js"></script>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

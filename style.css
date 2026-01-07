@@ -1,0 +1,906 @@
+/* ====================================
+   STORYLINE STYLE - نمط ستوري لاين
+   ==================================== */
+
+:root {
+    --wood-bg: #B8956A;
+    --dark-brown: #4A3825;
+    --light-cream: #F5E6D3;
+    --button-blue: #2B5EA6;
+    --button-red: #C41E3A;
+    --button-yellow: #F4A900;
+    --button-green: #27AE60;
+    --button-orange: #E67E22;
+    --correct-green: #28A745;
+    --wrong-red: #DC3545;
+    --text-dark: #2C2013;
+    --border-dark: #3D2817;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('images/woodBackground.jpg') center/cover;
+    background-color: var(--wood-bg);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(139, 90, 43, 0.1) 1px, transparent 1px),
+        linear-gradient(rgba(139, 90, 43, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ====================================
+   LANDING PAGE - الصفحة الرئيسية
+   ==================================== */
+
+.landing-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.landing-background {
+    width: 100vw;
+    height: 100vh;
+    background: url('images/landing.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.landing-title {
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.landing-title h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.landing-title h2 {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+.start-btn {
+    position: absolute;
+    bottom: 22%;
+    background: linear-gradient(135deg, #00BCD4, #0097A7);
+    color: white;
+    padding: 18px 55px;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.start-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* ====================================
+   WELCOME PAGE - صفحة الترحيب
+   ==================================== */
+
+.welcome-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: transparent;
+}
+
+.welcome-nav-btn {
+    background: linear-gradient(135deg, var(--button-orange), #d67019);
+    color: white;
+    border: 3px solid white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.welcome-nav-btn:hover,
+.welcome-nav-btn.active-nav {
+    background: linear-gradient(135deg, #f39c12, var(--button-orange));
+    transform: translateY(-2px);
+}
+
+.welcome-content-box {
+    width: 90%;
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: var(--light-cream);
+    border: 12px solid #8B5A2B;
+    border-radius: 20px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+    gap: 40px;
+}
+
+.welcome-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.audio-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--button-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    border: 3px solid white;
+}
+
+.audio-icon:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: #d67019;
+}
+
+.audio-icon:active {
+    transform: scale(1.05);
+}
+
+.trophy-img {
+    max-width: 200px;
+}
+
+.welcome-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.welcome-message {
+    background: linear-gradient(135deg, #E8C9F5, #D8A9E8);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    max-width: 600px;
+}
+
+.welcome-message p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.content-btn {
+    background: linear-gradient(135deg, #E8979C, #D87B80);
+    color: white;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.content-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.welcome-right {
+    display: flex;
+    align-items: center;
+}
+
+.welcome-character {
+    max-width: 250px;
+    height: auto;
+}
+
+/* ====================================
+   LEARNING STYLES PAGE - صفحة الأنماط
+   ==================================== */
+
+.styles-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.styles-title {
+    color: var(--button-red);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.styles-subtitle {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.styles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 900px;
+}
+
+.style-card {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 5px solid;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.style-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+.style-card.visual {
+    border-color: var(--button-blue);
+}
+
+.style-card.auditory {
+    border-color: var(--button-orange);
+}
+
+.style-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.style-card h3 {
+    color: var(--button-red);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.style-card p {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.style-code {
+    display: inline-block;
+    background: var(--button-red);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ====================================
+   OBJECTIVES PAGE - صفحة الأهداف
+   ==================================== */
+
+.objectives-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.objectives-board {
+    width: 90%;
+    max-width: 1200px;
+    height: 70vh;
+    background: url('images/objective.png') center/contain no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ====================================
+   MODULES PAGE - صفحة الموديولات
+   ==================================== */
+
+.modules-scene {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.modules-grid-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+.module-button {
+    background: linear-gradient(135deg, var(--button-blue), #1e4785);
+    color: white;
+    border: 4px solid white;
+    border-radius: 25px;
+    padding: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.module-button:hover:not(:disabled) {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.module-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.module-number {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ====================================
+   LESSON LAYOUT - تخطيط الدرس
+   ==================================== */
+
+.lesson-title-outside {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: linear-gradient(135deg, #D49A3D, #B8862E);
+    padding: 12px 35px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    text-align: center;
+    border: 3px solid #8B5A2B;
+}
+
+.lesson-title-outside h1 {
+    font-size: 1.4rem;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+.lesson-title-outside h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    opacity: 0.95;
+}
+
+.lesson-layout {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+    padding-top: 80px;
+}
+
+.lesson-main-area {
+    background: var(--dark-brown);
+    margin: 20px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 12px solid #8B5A2B;
+    border-radius: 15px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.lesson-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-btn {
+    width: 100%;
+    padding: 18px 15px;
+    background: linear-gradient(135deg, var(--button-red), #a01828);
+    color: white;
+    border: 4px solid white;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.sidebar-btn:hover {
+    transform: translateX(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.sidebar-btn.active {
+    background: linear-gradient(135deg, #E85555, var(--button-red));
+    transform: translateX(-8px);
+}
+
+.home-btn {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--button-yellow), #d49000);
+    border: 5px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    margin-top: 20px;
+}
+
+.home-btn:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* ====================================
+   LESSON CONTENT AREA
+   ==================================== */
+
+.content-area {
+    width: 100%;
+    height: 100%;
+    background: var(--light-cream);
+    border-radius: 8px;
+    padding: 30px;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.content-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-area::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.content-area::-webkit-scrollbar-thumb {
+    background: var(--button-orange);
+    border-radius: 10px;
+}
+
+/* ====================================
+   VIDEO CONTENT
+   ==================================== */
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+}
+
+/* Audio Content for Style 222 */
+.audio-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.audio-player {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* ====================================
+   QUESTION CONTAINER - حاوية الأسئلة
+   ==================================== */
+
+.storyline-question-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.question-character {
+    width: 180px;
+}
+
+.question-character img {
+    width: 100%;
+    height: auto;
+}
+
+.question-counter {
+    background: var(--button-red);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.question-text-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 3px solid var(--border-dark);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.question-text-box p {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ====================================
+   ANSWER OPTIONS - خيارات الإجابة
+   ==================================== */
+
+.answer-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.answer-btn {
+    background: linear-gradient(135deg, #00BCD4, #0097A7);
+    color: white;
+    border: 4px solid white;
+    padding: 18px 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: right;
+}
+
+.answer-btn:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.answer-btn:disabled {
+    cursor: not-allowed;
+}
+
+.answer-btn.correct-answer {
+    background: linear-gradient(135deg, var(--correct-green), #1e7e34);
+    border-color: #28A745;
+}
+
+.answer-btn.wrong-answer {
+    background: linear-gradient(135deg, var(--wrong-red), #bd2130);
+    border-color: #DC3545;
+}
+
+.option-label {
+    background: rgba(255,255,255,0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.option-text {
+    flex: 1;
+    text-align: right;
+}
+
+/* ====================================
+   FEEDBACK AREA - منطقة التعليقات
+   ==================================== */
+
+.feedback-area {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.feedback-area.feedback-correct {
+    border-color: var(--correct-green);
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+}
+
+.feedback-area.feedback-wrong {
+    border-color: var(--wrong-red);
+    background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+}
+
+.feedback-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feedback-content img {
+    width: 50px;
+    height: 50px;
+}
+
+.feedback-content p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* ====================================
+   NAVIGATION ARROWS - أسهم التنقل
+   ==================================== */
+
+.question-navigation {
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.nav-arrow {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+    color: white;
+    border: 4px solid white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.prev-arrow {
+    background: linear-gradient(135deg, #9E9E9E, #757575);
+}
+
+.next-arrow {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+}
+
+/* ====================================
+   QUIZ COMPLETION - إتمام الاختبار
+   ==================================== */
+
+.quiz-completion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.completion-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    border: 5px solid var(--button-yellow);
+    max-width: 500px;
+}
+
+.score-display {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+.btn {
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--button-blue), #1e4785);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--correct-green), #1e7e34);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+
+.hidden {
+    display: none !important;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+
+@media (max-width: 1024px) {
+    .lesson-layout {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+    }
+    
+    .lesson-sidebar {
+        width: 100%;
+        flex-direction: row;
+        padding: 15px;
+    }
+    
+    .modules-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .answer-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .welcome-content-box {
+        flex-direction: column;
+    }
+    
+    .styles-grid {
+        grid-template-columns: 1fr;
+    }
+}
