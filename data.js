@@ -7,7 +7,8 @@ const modulesData = {
     module1: {
         id: 'module1',
         title: 'الموديول الأول',
-        titleFr: 'Module 1: Les pronoms personnels',
+        titleFr: 'Les pronoms personnels sujets',
+        titleAr: 'الدرس الأول: الضمائر الشخصية',
         description: 'الضمائر الشخصية في اللغة الفرنسية',
         audioFile: 'module1.mp3',
         lessons: [
@@ -18,10 +19,11 @@ const modulesData = {
                 description: 'تعلم الضمائر الشخصية في اللغة الفرنسية',
                 videoFile: 'content1.mp4',
                 objectives: [
-                    'التعرف على الضمائر الشخصية الثمانية',
-                    'استخدام الضمائر بشكل صحيح في الجمل',
-                    'التمييز بين الضمائر المذكرة والمؤنثة',
-                    'تطبيق الضمائر في سياقات مختلفة'
+                    'Identifier les différentes parties de la phrase (le sujet, le verbe, le complément).',
+                    'Reconnaître le rôle de chaque partie dans la construction du sens.',
+                    'Former des phrases simples et correctes en respectant l\'ordre des éléments.',
+                    'Distinguer entre le groupe sujet et le groupe verbal.',
+                    'Analyser une phrase pour trouver le sujet, le verbe et le complément.'
                 ]
             }
         ]
@@ -49,75 +51,89 @@ const exercisesData = {
         {
             id: 'ex1',
             type: 'mcq',
-            title: 'التمرين 1: اختر الضمير المناسب للصورة',
+            title: 'اختر الضمير المناسب',
             questions: [
                 {
-                    question: '👧 __________ chante une chanson.',
+                    question: '______ → Sophie',
                     options: ['Je', 'Tu', 'Il', 'Elle'],
                     correct: 'Elle'
                 },
                 {
-                    question: '👦 __________ joue au ballon.',
+                    question: '______ → Paul',
                     options: ['Je', 'Tu', 'Il', 'Elle'],
                     correct: 'Il'
                 },
                 {
-                    question: '👩👩 __________ regardent un film.',
+                    question: '______ → Les filles',
                     options: ['Nous', 'Vous', 'Ils', 'Elles'],
                     correct: 'Elles'
-                },
-                {
-                    question: '👨👩👦 __________ mangent ensemble.',
-                    options: ['Nous', 'Vous', 'Ils', 'Elles'],
-                    correct: 'Ils'
-                },
-                {
-                    question: '👩 et moi __________ allons à l\'école.',
-                    options: ['Je', 'Tu', 'Nous', 'Vous'],
-                    correct: 'Nous'
                 }
             ]
         },
         {
             id: 'ex2',
-            type: 'mcq',
-            title: 'التمرين 2: أكمل الجملة بالضمير المناسب حسب الوصف',
+            type: 'true_false',
+            title: 'صح أم خطأ',
             questions: [
                 {
-                    question: '(ولد صغير) → ______ aime le chocolat.',
-                    options: ['Je', 'Il', 'Elle', 'Nous'],
-                    correct: 'Il'
+                    question: 'Je suis étudiant',
+                    statement: 'الجملة صحيحة',
+                    correct: true
                 },
                 {
-                    question: '(مجموعة فتيات) → ______ dansent dans la fête.',
-                    options: ['Elle', 'Elles', 'Ils', 'Nous'],
-                    correct: 'Elles'
+                    question: 'Il parle français',
+                    statement: 'الجملة صحيحة',
+                    correct: true
                 },
                 {
-                    question: '(معلمة تتحدث مع التلاميذ) → ______ parle aux élèves.',
-                    options: ['Il', 'Elle', 'Nous', 'Ils'],
-                    correct: 'Elle'
+                    question: 'Nous es professeur',
+                    statement: 'الجملة صحيحة',
+                    correct: false
+                }
+            ]
+        },
+        {
+            id: 'ex3',
+            type: 'fill_blank',
+            title: 'أكمل الجملة',
+            instruction: 'أكمل الفراغ بالضمير المناسب',
+            questions: [
+                {
+                    sentence: '_____ joues au foot.',
+                    options: ['Je', 'Tu', 'Il', 'Elle'],
+                    correct: 'Tu'
                 },
                 {
-                    question: '(أنا وصديقي) → ______ jouons au foot.',
-                    options: ['Je', 'Tu', 'Nous', 'Vous'],
-                    correct: 'Nous'
-                },
-                {
-                    question: '(رجل وامرأة) → ______ voyagent en France.',
-                    options: ['Il', 'Elle', 'Nous', 'Ils'],
+                    sentence: '_____ regardent la télé.',
+                    options: ['Nous', 'Vous', 'Ils', 'Elles'],
                     correct: 'Ils'
+                }
+            ]
+        },
+        {
+            id: 'ex4',
+            type: 'drag_drop',
+            title: 'رتب الجملة',
+            instruction: 'اسحب الكلمات لتكوين جملة صحيحة',
+            questions: [
+                {
+                    correctOrder: ['Je', 'parle', 'français'],
+                    words: ['français', 'Je', 'parle']
+                },
+                {
+                    correctOrder: ['Ils', 'jouent', 'au', 'foot'],
+                    words: ['foot', 'au', 'Ils', 'jouent']
                 }
             ]
         }
     ],
     
-    // تمارين الذاكرة البصرية المنخفضة (النمط 222 و 333)
+    // تمارين الذاكرة البصرية المنخفضة (النمط 222)
     visualLow: [
         {
-            id: 'ex3',
+            id: 'ex1',
             type: 'mcq',
-            title: 'التمرين 1: استبدل الاسم بالضمير المناسب',
+            title: 'استبدل الاسم بالضمير',
             questions: [
                 {
                     question: 'Paul → __________',
@@ -130,98 +146,46 @@ const exercisesData = {
                     correct: 'Elle'
                 },
                 {
-                    question: 'Moi et mes amis → __________',
-                    options: ['Je', 'Tu', 'Nous', 'Vous'],
-                    correct: 'Nous'
-                },
-                {
-                    question: 'Toi et ta sœur → __________',
-                    options: ['Tu', 'Nous', 'Vous', 'Ils'],
-                    correct: 'Vous'
-                },
-                {
                     question: 'Les garçons → __________',
                     options: ['Il', 'Elle', 'Ils', 'Elles'],
                     correct: 'Ils'
-                },
-                {
-                    question: 'La fille → __________',
-                    options: ['Je', 'Il', 'Elle', 'Nous'],
-                    correct: 'Elle'
-                },
-                {
-                    question: 'Mon frère et moi → __________',
-                    options: ['Je', 'Tu', 'Nous', 'Vous'],
-                    correct: 'Nous'
-                },
-                {
-                    question: 'Madame Dupont → __________',
-                    options: ['Je', 'Tu', 'Il', 'Elle'],
-                    correct: 'Elle'
                 }
             ]
         },
         {
-            id: 'ex4',
-            type: 'mcq',
-            title: 'التمرين 2: أكمل الجمل بالضمير الصحيح',
+            id: 'ex2',
+            type: 'fill_blank',
+            title: 'أكمل الجمل',
+            instruction: 'اختر الضمير المناسب',
             questions: [
                 {
-                    question: '__________ parle français. (أنا)',
+                    sentence: '_____ parle français.',
                     options: ['Je', 'Tu', 'Il', 'Nous'],
-                    correct: 'Je'
+                    correct: 'Je',
+                    hint: '(أنا)'
                 },
                 {
-                    question: '__________ habitez à Paris. (أنتم)',
-                    options: ['Je', 'Tu', 'Nous', 'Vous'],
-                    correct: 'Vous'
-                },
-                {
-                    question: '__________ aime le sport. (هو)',
-                    options: ['Je', 'Tu', 'Il', 'Elle'],
-                    correct: 'Il'
-                },
-                {
-                    question: '__________ chantons une chanson. (نحن)',
-                    options: ['Je', 'Tu', 'Nous', 'Vous'],
-                    correct: 'Nous'
-                },
-                {
-                    question: '__________ dansent bien. (هنّ)',
-                    options: ['Elle', 'Nous', 'Ils', 'Elles'],
-                    correct: 'Elles'
+                    sentence: '_____ habitez à Paris.',
+                    options: ['Tu', 'Nous', 'Vous', 'Ils'],
+                    correct: 'Vous',
+                    hint: '(أنتم)'
                 }
             ]
         },
         {
-            id: 'ex5',
-            type: 'mcq',
-            title: 'التمرين 3: اختر الإجابة الصحيحة',
+            id: 'ex3',
+            type: 'true_false',
+            title: 'صح أم خطأ',
             questions: [
                 {
-                    question: '_____ travaille à l\'école',
-                    options: ['Je', 'Il', 'Elles', 'Nous'],
-                    correct: 'Il'
+                    question: 'Tu es étudiant',
+                    statement: 'الجملة صحيحة',
+                    correct: true
                 },
                 {
-                    question: '_____ aimez le café ?',
-                    options: ['Tu', 'Vous', 'Nous', 'Ils'],
-                    correct: 'Vous'
-                },
-                {
-                    question: '_____ regardons la télé.',
-                    options: ['Nous', 'Ils', 'Je', 'Tu'],
-                    correct: 'Nous'
-                },
-                {
-                    question: '_____ joue au tennis.',
-                    options: ['Elle', 'Vous', 'Elles', 'Nous'],
-                    correct: 'Elle'
-                },
-                {
-                    question: '_____ suis élève.',
-                    options: ['Tu', 'Je', 'Ils', 'Nous'],
-                    correct: 'Je'
+                    question: 'Nous est professeur',
+                    statement: 'الجملة صحيحة',
+                    correct: false
                 }
             ]
         }
