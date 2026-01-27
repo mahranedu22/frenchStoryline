@@ -116,7 +116,7 @@ function loadModules() {
     const container = document.getElementById('modulesGrid');
     container.innerHTML = '';
     
-    // Create 6 module buttons (only first one is active)
+    // Create module buttons - all 3 modules are now active
     Object.keys(modulesData).forEach((key, index) => {
         const module = modulesData[key];
         const moduleNumber = index + 1;
@@ -124,8 +124,8 @@ function loadModules() {
         const moduleBtn = document.createElement('button');
         moduleBtn.className = 'module-button';
         
-        // Only Module 1 is enabled
-        if (moduleNumber > 1) {
+        // Enable modules 1, 2, and 3
+        if (moduleNumber > 3) {
             moduleBtn.disabled = true;
         }
         
@@ -134,7 +134,7 @@ function loadModules() {
             <div>${module.title}</div>
         `;
         
-        if (moduleNumber === 1) {
+        if (moduleNumber <= 3) {
             moduleBtn.onclick = () => openModule(module.id);
         }
         

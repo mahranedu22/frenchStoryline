@@ -11,8 +11,16 @@ const questionsManager = {
     
     // Initialize exercises
     init() {
+        // Get exercises for current module
+        const moduleExercises = exercisesData[currentModuleId];
+        if (!moduleExercises) {
+            console.error('No exercises found for module:', currentModuleId);
+            return;
+        }
+        
         const exercises = currentLearningStyle === '111' ? 
-            exercisesData.visualHigh : exercisesData.visualLow;
+            moduleExercises.visualHigh : moduleExercises.visualLow;
+            
         this.allExercises = exercises;
         this.currentExerciseIndex = 0;
         this.currentQuestionIndex = 0;
