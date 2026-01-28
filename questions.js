@@ -8,6 +8,8 @@ const questionsManager = {
     userAnswers: [],
     correctAnswers: 0,
     allExercises: [],
+    currentTrialCount: 0, // Track trials for current question
+    maxTrials: 2, // Maximum 2 trials per question
     
     // Initialize exercises
     init() {
@@ -26,6 +28,7 @@ const questionsManager = {
         this.currentQuestionIndex = 0;
         this.userAnswers = [];
         this.correctAnswers = 0;
+        this.currentTrialCount = 0;
     },
     
     // Get current exercise
@@ -50,17 +53,16 @@ const questionsManager = {
         const isCorrect = selectedAnswer === currentQ.correct || 
                          selectedAnswer === currentQ.correct.toString();
         
-        if (isCorrect) {
-            this.correctAnswers++;
-        }
+        this.currentTrialCount++;
         
         return isCorrect;
     },
     
-    // Move to next question
+    // Move to next question and reset trial count
     nextQuestion() {
         if (this.currentQuestionIndex < this.getTotalQuestionsInExercise() - 1) {
             this.currentQuestionIndex++;
+            this.currentTrialCount = 0; // Reset trial count
             return true;
         }
         return false;
@@ -70,6 +72,7 @@ const questionsManager = {
     previousQuestion() {
         if (this.currentQuestionIndex > 0) {
             this.currentQuestionIndex--;
+            this.currentTrialCount = 0; // Reset trial count
             return true;
         }
         return false;
@@ -80,6 +83,7 @@ const questionsManager = {
         if (this.currentExerciseIndex < this.allExercises.length - 1) {
             this.currentExerciseIndex++;
             this.currentQuestionIndex = 0;
+            this.currentTrialCount = 0; // Reset trial count
             return true;
         }
         return false;
@@ -91,14 +95,56 @@ const questionsManager = {
                this.currentQuestionIndex >= this.getTotalQuestionsInExercise() - 1;
     },
     
+    // Check if max trials reached
+    isMaxTrialsReached() {
+        return this.currentTrialCount >= this.maxTrials;
+    },
+    
     // Reset
     reset() {
         this.currentExerciseIndex = 0;
         this.currentQuestionIndex = 0;
         this.userAnswers = [];
         this.correctAnswers = 0;
+        this.currentTrialCount = 0;
     }
 };
+
+/* ====================================
+   FEEDBACK POPUP FUNCTIONS
+   ==================================== */
+
+function showFeedbackPopup(isCorrect, callback) {
+    // Create popup overlay
+    const popup = document.createElement('div');
+    popup.className = 'feedback-popup-overlay';
+    popup.innerHTML = `
+        <div class="feedback-popup">
+            <img src="images/${isCorrect ? 'good' : 'bad'}.png" alt="${isCorrect ? 'Good' : 'Bad'}" class="feedback-image">
+        </div>
+    `;
+    document.body.appendChild(popup);
+    
+    // Play feedback audio
+    const feedbackAudio = new Audio(`audio/${isCorrect ? 'good' : 'bad'}.mp3`);
+    feedbackAudio.play().catch(error => {
+        console.log('Feedback audio not found:', error);
+    });
+    
+    // Show popup with animation
+    setTimeout(() => {
+        popup.classList.add('show');
+    }, 10);
+    
+    // Remove popup after 800ms and execute callback
+    setTimeout(() => {
+        popup.classList.remove('show');
+        setTimeout(() => {
+            popup.remove();
+            if (callback) callback();
+        }, 300);
+    }, 800);
+}
 
 /* ====================================
    UI FUNCTIONS FOR QUESTIONS
@@ -284,7 +330,7 @@ function renderNavigationArrows(currentIndex) {
 }
 
 /* ====================================
-   ANSWER HANDLING
+   ANSWER HANDLING WITH 2-TRIAL SYSTEM
    ==================================== */
 
 function handleAnswerClick(selectedAnswer, buttonElement) {
@@ -292,6 +338,7 @@ function handleAnswerClick(selectedAnswer, buttonElement) {
         playClickSound();
     }
     
+    // Disable all buttons during processing
     const allButtons = document.querySelectorAll('.answer-btn, .tf-btn');
     allButtons.forEach(btn => {
         btn.disabled = true;
@@ -301,10 +348,13 @@ function handleAnswerClick(selectedAnswer, buttonElement) {
     const isCorrect = questionsManager.checkAnswer(selectedAnswer);
     
     if (isCorrect) {
+        // CORRECT ANSWER
         buttonElement.classList.add('correct-answer');
+        questionsManager.correctAnswers++; // Count the question as correct
         
-        if (!questionsManager.isCompleted()) {
-            setTimeout(() => {
+        // Show good popup and move to next question
+        showFeedbackPopup(true, () => {
+            if (!questionsManager.isCompleted()) {
                 const hasNext = questionsManager.nextQuestion();
                 if (hasNext) {
                     renderQuestion();
@@ -317,20 +367,47 @@ function handleAnswerClick(selectedAnswer, buttonElement) {
                         showQuizCompletion();
                     }
                 }
-            }, 800);
-        } else {
-            setTimeout(() => showQuizCompletion(), 1000);
-        }
+            } else {
+                showQuizCompletion();
+            }
+        });
     } else {
+        // WRONG ANSWER
         buttonElement.classList.add('wrong-answer');
         
-        setTimeout(() => {
-            allButtons.forEach(btn => {
-                btn.disabled = false;
-                btn.style.cursor = 'pointer';
-                btn.classList.remove('wrong-answer');
+        if (questionsManager.isMaxTrialsReached()) {
+            // 2nd WRONG TRIAL - Show BAD popup, keep buttons disabled, and move to next question
+            showFeedbackPopup(false, () => {
+                // Don't increment correctAnswers - question is counted as wrong
+                // Don't re-enable buttons - move directly to next question
+                if (!questionsManager.isCompleted()) {
+                    const hasNext = questionsManager.nextQuestion();
+                    if (hasNext) {
+                        renderQuestion();
+                    } else {
+                        // Move to next exercise
+                        const hasNextEx = questionsManager.nextExercise();
+                        if (hasNextEx) {
+                            renderQuestion();
+                        } else {
+                            showQuizCompletion();
+                        }
+                    }
+                } else {
+                    showQuizCompletion();
+                }
             });
-        }, 1000);
+        } else {
+            // 1st WRONG TRIAL - Show BAD popup and allow retry (re-enable buttons)
+            showFeedbackPopup(false, () => {
+                // Re-enable buttons for retry
+                allButtons.forEach(btn => {
+                    btn.disabled = false;
+                    btn.style.cursor = 'pointer';
+                    btn.classList.remove('wrong-answer');
+                });
+            });
+        }
     }
 }
 
@@ -407,14 +484,17 @@ function checkDragDropAnswer() {
     
     const isCorrect = JSON.stringify(userAnswer) === JSON.stringify(question.correctOrder);
     
+    questionsManager.currentTrialCount++;
+    
     if (isCorrect) {
+        // CORRECT ANSWER
         questionsManager.correctAnswers++;
         slots.forEach(slot => {
             slot.style.backgroundColor = 'var(--correct-green)';
             slot.style.color = 'white';
         });
         
-        setTimeout(() => {
+        showFeedbackPopup(true, () => {
             if (!questionsManager.isCompleted()) {
                 const hasNext = questionsManager.nextQuestion();
                 if (hasNext) {
@@ -430,19 +510,49 @@ function checkDragDropAnswer() {
             } else {
                 showQuizCompletion();
             }
-        }, 1000);
+        });
     } else {
+        // WRONG ANSWER
         slots.forEach(slot => {
             slot.style.backgroundColor = 'var(--wrong-red)';
             slot.style.color = 'white';
         });
         
-        setTimeout(() => {
-            slots.forEach(slot => {
-                slot.style.backgroundColor = '';
-                slot.style.color = '';
+        if (questionsManager.isMaxTrialsReached()) {
+            // 2nd WRONG TRIAL - Show BAD popup, disable check button, move to next question
+            const checkButton = document.querySelector('.btn-primary');
+            if (checkButton) {
+                checkButton.disabled = true;
+                checkButton.style.opacity = '0.5';
+                checkButton.style.cursor = 'not-allowed';
+            }
+            
+            showFeedbackPopup(false, () => {
+                if (!questionsManager.isCompleted()) {
+                    const hasNext = questionsManager.nextQuestion();
+                    if (hasNext) {
+                        renderQuestion();
+                    } else {
+                        const hasNextEx = questionsManager.nextExercise();
+                        if (hasNextEx) {
+                            renderQuestion();
+                        } else {
+                            showQuizCompletion();
+                        }
+                    }
+                } else {
+                    showQuizCompletion();
+                }
             });
-        }, 1000);
+        } else {
+            // 1st WRONG TRIAL - Allow retry (reset colors)
+            showFeedbackPopup(false, () => {
+                slots.forEach(slot => {
+                    slot.style.backgroundColor = '';
+                    slot.style.color = '';
+                });
+            });
+        }
     }
 }
 

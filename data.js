@@ -32,13 +32,13 @@ const modulesData = {
         id: 'module2',
         title: 'الموديول الثاني',
         titleFr: 'La conjugaison des verbes',
-        titleAr: 'الدرس الثاني: تصريف الافعال',
+        titleAr: 'الدرس الثاني :تصريف الافعال',
         description: 'أفعال المجموعة الأولى والأفعال الأساسية',
         audioFile: 'audio/module2.mp3',
         lessons: [
             {
                 id: 'lesson2',
-                title: 'الدرس الثاني: تصريف الافعال',
+                title: 'الدرس الثاني :تصريف الافعال',
                 titleFr: 'La conjugaison des verbes',
                 description: 'تعلم تصريف أفعال المجموعة الأولى والأفعال الأساسية',
                 videoFile: 'content2.mp4',

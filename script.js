@@ -98,12 +98,24 @@ function playAudio(audioFile) {
     });
 }
 
-// New function for content audio
+// New function for content audio - NOW USES MODULE-SPECIFIC AUDIO
 function playContentAudio() {
     stopCurrentAudio();
-    currentAudio = new Audio('audio/content1.mp3');
+    
+    // Get the correct audio file based on current module
+    let audioFile = 'audio/content1.mp3'; // default
+    
+    if (currentModuleId === 'module1') {
+        audioFile = 'audio/content1.mp3';
+    } else if (currentModuleId === 'module2') {
+        audioFile = 'audio/content2.mp3';
+    } else if (currentModuleId === 'module3') {
+        audioFile = 'audio/content3.mp3';
+    }
+    
+    currentAudio = new Audio(audioFile);
     currentAudio.play().catch(error => {
-        console.log('Audio file not found:', error);
+        console.log('Audio file not found:', audioFile);
         alert('الملف الصوتي غير متوفر');
     });
 }
@@ -235,14 +247,14 @@ function loadObjectivesContent(container) {
     const lesson = module.lessons.find(l => l.id === currentLessonId);
     
     const objectivesHTML = `
-        <div style="background: linear-gradient(135deg, #8B4513, #654321); color: white; padding: 40px; border-radius: 10px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+        <div class="objectives-content-container">
             <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: #FFD700; text-align: center; font-weight: bold;">
                 Objectifs d'apprentissage à la fin de la leçon: Les parties de la phrase
             </h3>
             <p style="font-size: 1.3rem; margin-bottom: 25px; color: white; font-weight: bold;">
                 À la fin de cette leçon, l'élève sera capable de :
             </p>
-            <ol style="list-style: decimal; padding-right: 30px; color: white; font-size: 1.15rem; line-height: 2.2;">
+            <ol style="list-style: decimal; padding-left: 30px; color: white; font-size: 1.15rem; line-height: 2.2;">
                 ${lesson.objectives.map(obj => `
                     <li style="margin-bottom: 18px; font-weight: 500;">${obj}</li>
                 `).join('')}
@@ -275,7 +287,7 @@ function loadVideoContent(container) {
                         اضغط على أيقونة السماعة للاستماع للمحتوى
                     </p>
                     <audio controls class="audio-player" id="contentAudioPlayer" style="display: none;">
-                        <source src="audio/content1.mp3" type="audio/mpeg">
+                        <source src="audio/content${currentModuleId === 'module1' ? '1' : currentModuleId === 'module2' ? '2' : '3'}.mp3" type="audio/mpeg">
                         المتصفح لا يدعم تشغيل الصوت
                     </audio>
                 </div>
@@ -310,16 +322,6 @@ function loadVideoContent(container) {
             });
         }
     }
-}
-
-// New function for content audio
-function playContentAudio() {
-    stopCurrentAudio();
-    currentAudio = new Audio('audio/content1.mp3');
-    currentAudio.play().catch(error => {
-        console.log('Audio file not found:', error);
-        alert('الملف الصوتي غير متوفر');
-    });
 }
 
 function loadActivitiesContent(container) {
