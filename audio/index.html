@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعليم اللغة الفرنسية - French Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====================================
+         LANDING PAGE - صفحة الهبوط
+         ==================================== -->
+    <div id="landingPage" class="page active">
+        <div class="landing-container">
+            <div class="landing-background">
+                <div class="landing-title">
+                    <h1>Le sujet</h1>
+                    <h2>الفاعل في اللغة الفرنسية</h2>
+                </div>
+                <button class="start-btn" onclick="showPage('introPage')">
+                    ابدأ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         WELCOME PAGE - صفحة الترحيب
+         ==================================== -->
+    <div id="welcomePage" class="page">
+        <div class="welcome-container">
+            <!-- Welcome Content -->
+            <div class="welcome-content-box">
+                <div class="welcome-left">
+                    <div class="audio-icon" onclick="event.stopPropagation(); playWelcomeAudio();">🔊</div>
+                    <img src="images/objectivechar.png" alt="Character" class="welcome-character-left" onerror="this.style.display='none'">
+                </div>
+                
+                <div class="welcome-center">
+                    <div class="welcome-message">
+                        <p>Bienvenue, cher élève, dans votre parcours éducatif interactif, où vous trouverez un contenu adapté à vos capacités et qui suit vos progrès étape par étape.</p>
+                    </div>
+                    <button class="content-btn" onclick="showPage('modulesPage')">
+                        Le contenu éducatif
+                    </button>
+                </div>
+                
+                <div class="welcome-right">
+                    <img src="images/welcome-character.png" alt="Character" class="welcome-character" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         INTRO PAGE - صفحة المقدمة
+         ==================================== -->
+    <div id="introPage" class="page">
+        <div class="intro-container">
+            <video id="introVideo" autoplay muted class="intro-video">
+                <source src="intro.mp4" type="video/mp4">
+                المتصفح لا يدعم تشغيل الفيديو
+            </video>
+            <button class="skip-intro-btn" id="skipIntroBtn" style="display: none;" onclick="showPage('stylesPage')">
+                تخطي المقدمة ⏭
+            </button>
+        </div>
+    </div>
+
+    <!-- ====================================
+         LEARNING STYLES PAGE - صفحة اختيار النمط
+         ==================================== -->
+    <div id="stylesPage" class="page">
+        <div class="styles-container">
+            <h2 class="styles-title">أدخل بياناتك واختر نمط التعلم</h2>
+            
+            <div class="styles-form">
+                <div class="form-group-style">
+                    <label>الاسم:</label>
+                    <input type="text" id="studentName" placeholder="أدخل اسمك" class="style-input">
+                </div>
+                
+                <div class="form-group-style">
+                    <label>رقم النمط (111 أو 222):</label>
+                    <input type="text" id="styleNumber" placeholder="111 أو 222" class="style-input" maxlength="3">
+                </div>
+                
+                <button class="btn btn-primary" onclick="submitLearningStyle()" style="margin-top: 30px; font-size: 1.4rem; padding: 18px 50px;">
+                    دخول
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         OBJECTIVES PAGE - صفحة الأهداف
+         ==================================== -->
+    <div id="objectivesPage" class="page">
+        <div class="objectives-container">
+            <div class="objectives-board">
+                <!-- محتوى الأهداف سيكون في الصورة -->
+            </div>
+            <button class="start-btn" onclick="showPage('modulesPage')" 
+                    style="position: absolute; bottom: 10%; left: 10%;">
+                تخطى المقدمة
+            </button>
+        </div>
+    </div>
+
+    <!-- ====================================
+         MODULES PAGE - صفحة الموديولات
+         ==================================== -->
+    <div id="modulesPage" class="page">
+        <div class="modules-scene">
+            <div class="modules-grid-container" id="modulesGrid">
+                <!-- Modules will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         LESSON PAGE - صفحة الدرس
+         ==================================== -->
+    <div id="lessonPage" class="page">
+        <!-- Lesson Title ABOVE the board -->
+        <div class="lesson-title-outside" id="lessonTitleOutside">
+            <!-- Title will be set dynamically -->
+        </div>
+        
+        <div class="lesson-layout">
+            <!-- Main Content Area -->
+            <div class="lesson-main-area">
+                <div class="content-area" id="mainContentArea">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Sidebar Navigation -->
+            <div class="lesson-sidebar">
+                <button class="sidebar-btn" id="btnObjectives" onclick="switchLessonTab('objectives')">
+                    Les objectifs
+                </button>
+                <button class="sidebar-btn" id="btnContent" onclick="switchLessonTab('content')">
+                    Le contenu
+                </button>
+                <button class="sidebar-btn" id="btnActivities" onclick="switchLessonTab('activities')">
+                    les exersize
+                </button>
+                
+                <button class="home-btn" onclick="goToHome()">
+                    🏠
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================
+         SCRIPTS - السكريبتات
+         ==================================== -->
+    <script src="data.js"></script>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
