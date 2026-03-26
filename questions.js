@@ -192,6 +192,10 @@ function renderMCQ(exercise, question, currentIndex, totalQuestions) {
                     <img src="images/questionCharacter.png" alt="Character" onerror="this.style.display='none'">
                 </div>
             </div>
+
+            <div class="exercise-instruction-box">
+                <p>${exercise.title}</p>
+            </div>
             
             <div class="question-text-box">
                 <p>${question.question}</p>
@@ -220,6 +224,10 @@ function renderTrueFalse(exercise, question, currentIndex, totalQuestions) {
                 <div class="question-character">
                     <img src="images/questionCharacter.png" alt="Character" onerror="this.style.display='none'">
                 </div>
+            </div>
+
+            <div class="exercise-instruction-box">
+                <p>${exercise.title}</p>
             </div>
             
             <div class="question-text-box">
@@ -253,9 +261,13 @@ function renderFillBlank(exercise, question, currentIndex, totalQuestions) {
                     <img src="images/questionCharacter.png" alt="Character" onerror="this.style.display='none'">
                 </div>
             </div>
+
+            <div class="exercise-instruction-box">
+                <p>${exercise.title}</p>
+                ${exercise.instruction ? `<p style="font-size:0.95rem; margin-top:6px; opacity:0.85;">${exercise.instruction}</p>` : ''}
+            </div>
             
             <div class="question-text-box">
-                <h3 style="margin-bottom: 20px; color: var(--button-red);">${exercise.instruction || 'أكمل الفراغ'}</h3>
                 <p style="font-size: 1.8rem; font-weight: bold;">${question.sentence}</p>
                 ${question.hint ? `<p style="margin-top: 10px; color: var(--text-secondary);">${question.hint}</p>` : ''}
             </div>
@@ -284,9 +296,10 @@ function renderDragDrop(exercise, question, currentIndex, totalQuestions) {
                     <img src="images/questionCharacter.png" alt="Character" onerror="this.style.display='none'">
                 </div>
             </div>
-            
-            <div class="question-text-box">
-                <h3 style="color: var(--button-red);">${exercise.instruction}</h3>
+
+            <div class="exercise-instruction-box">
+                <p>${exercise.title}</p>
+                ${exercise.instruction ? `<p style="font-size:0.95rem; margin-top:6px; opacity:0.85;">${exercise.instruction}</p>` : ''}
             </div>
             
             <div class="drag-drop-area">

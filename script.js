@@ -121,7 +121,7 @@ function playContentAudio() {
 }
 
 /* ====================================
-   MODULES FUNCTIONS - وظائف الموديولات
+    MODULES FUNCTIONS - وظائف الدروس
    ==================================== */
 
 function loadModules() {
@@ -142,7 +142,7 @@ function loadModules() {
         }
         
         moduleBtn.innerHTML = `
-            <div class="module-number">Module ${moduleNumber}</div>
+            <div class="module-number">Leçon ${moduleNumber}</div>
             <div>${module.title}</div>
         `;
         
@@ -159,8 +159,8 @@ function loadModules() {
         placeholderBtn.className = 'module-button';
         placeholderBtn.disabled = true;
         placeholderBtn.innerHTML = `
-            <div class="module-number">Module ${i}</div>
-            <div>الموديول ${['الرابع', 'الخامس', 'السادس'][i-4]}</div>
+            <div class="module-number">Leçon ${i}</div>
+            <div>الدرس ${['الرابع', 'الخامس', 'السادس'][i-4]}</div>
         `;
         container.appendChild(placeholderBtn);
     }
@@ -249,11 +249,7 @@ function loadObjectivesContent(container) {
     const objectivesHTML = `
         <div class="objectives-content-container">
             <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: #FFD700; text-align: center; font-weight: bold;">
-                Objectifs d'apprentissage à la fin de la leçon: Les parties de la phrase
-            </h3>
-            <p style="font-size: 1.3rem; margin-bottom: 25px; color: white; font-weight: bold;">
-                À la fin de cette leçon, l'élève sera capable de :
-            </p>
+                À la fin de cette leçon, l'élève sera capable de/d : </h3>
             <ol style="list-style: decimal; padding-left: 30px; color: white; font-size: 1.15rem; line-height: 2.2;">
                 ${lesson.objectives.map(obj => `
                     <li style="margin-bottom: 18px; font-weight: 500;">${obj}</li>

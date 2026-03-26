@@ -425,6 +425,40 @@ body::before {
     margin-bottom: 10px;
 }
 
+.style-number-label {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.style-label-title {
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.style-option-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+}
+
+.style-option-chip.visual {
+    color: #0b5ed7;
+    background: #eaf2ff;
+    border-color: #9ec5fe;
+}
+
+.style-option-chip.auditory {
+    color: #0f5132;
+    background: #e9f7ef;
+    border-color: #8fd3a7;
+}
+
 .style-input {
     width: 100%;
     padding: 15px 20px;
@@ -1244,7 +1278,24 @@ body::before {
 .page.active {
     display: block;
 }
-
+.exercise-instruction-box {
+    background: linear-gradient(135deg, var(--button-red), #a01828);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    text-align: center;
+    direction: ltr;
+}
+ 
+.exercise-instruction-box p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+}
 /* ====================================
    RESPONSIVE DESIGN
    ==================================== */

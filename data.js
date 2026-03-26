@@ -2,11 +2,11 @@
    DATA STRUCTURE - هيكلة البيانات
    ==================================== */
 
-// بيانات الموديولات والدروس
+// بيانات الدرسات والدروس
 const modulesData = {
     module1: {
         id: 'module1',
-        title: 'الموديول الأول',
+        title: 'الدرس الأول',
         titleFr: 'Les pronoms personnels sujets',
         titleAr: 'الدرس الأول: الضمائر الشخصية',
         description: 'الضمائر الشخصية في اللغة الفرنسية',
@@ -30,7 +30,7 @@ const modulesData = {
     },
     module2: {
         id: 'module2',
-        title: 'الموديول الثاني',
+        title: 'الدرس الثاني',
         titleFr: 'La conjugaison des verbes',
         titleAr: 'الدرس الثاني :تصريف الافعال',
         description: 'أفعال المجموعة الأولى والأفعال الأساسية',
@@ -46,7 +46,7 @@ const modulesData = {
                     'Identifier les verbes du 1er groupe et reconnaître leur terminaison en -ER.',
                     'Conjuguer correctement les verbes réguliers du 1er groupe au présent de l\'indicatif.',
                     'Différencier entre le radical et les terminaisons du présent (-e, -es, -e, -ons, -ez, -ent).',
-                    'Produire des énoncés courts en utilisant un verbe du 1er groupe approprié selon le contexte.',
+                    'Écrire des énoncés courts en utilisant un verbe du 1er groupe approprié selon le contexte.',
                     'Conjuguer les verbes essentiels : être, avoir, aller, faire.'
                 ]
             }
@@ -54,7 +54,7 @@ const modulesData = {
     },
     module3: {
         id: 'module3',
-        title: 'الموديول الثالث',
+        title: 'الدرس الثالث',
         titleFr: 'Les verbes pronominaux',
         titleAr: 'الدرس الثالث: الأفعال الانعكاسية',
         description: 'الأفعال الانعكاسية في اللغة الفرنسية',
@@ -70,7 +70,7 @@ const modulesData = {
                     'Identifier la notion des verbes pronominaux en langue française.',
                     'Distinguer entre le verbe simple et le verbe pronominal.',
                     'Reconnaître les pronoms utilisés avec les verbes pronominaux : me, te, se, nous, vous, se.',
-                    'Comprendre la structure du verbe pronominal : (pronom réfléchi + verbe).',
+                    'reconnaître la structure du verbe pronominal : (pronom réfléchi + verbe).',
                     'Distinguer les types de verbes pronominaux : réfléchis, réciproques, essentiellement pronominaux.'
                 ]
             }
@@ -78,7 +78,7 @@ const modulesData = {
     }
 };
 
-// بيانات التمارين - الموديول الأول
+// بيانات التمارين - الدرس الأول
 const exercisesData = {
     module1: {
         visualHigh: [
@@ -148,7 +148,7 @@ const exercisesData = {
         ]
     },
     
-    // تمارين الموديول الثاني
+    // تمارين الدرس الثاني
     module2: {
         visualHigh: [
             {
@@ -287,7 +287,7 @@ const exercisesData = {
         ]
     },
     
-    // تمارين الموديول الثالث
+    // تمارين الدرس الثالث
     module3: {
         visualHigh: [
             {
