@@ -7,16 +7,16 @@ const modulesData = {
     module1: {
         id: 'module1',
         title: 'الدرس الأول',
-        titleFr: 'Les pronoms personnels sujets',
-        titleAr: 'الدرس الأول: الضمائر الشخصية',
-        description: 'الضمائر الشخصية في اللغة الفرنسية',
+        titleFr: 'La configuration syntaxique',
+        titleAr: 'الدرس الأول: التركيب النحوي',
+        description: 'التركيب النحوي في اللغة الفرنسية',
         audioFile: 'audio/module1.mp3',
         lessons: [
             {
                 id: 'lesson1',
-                title: 'الدرس الأول: الضمائر الشخصية',
-                titleFr: 'Les pronoms personnels sujets',
-                description: 'تعلم الضمائر الشخصية في اللغة الفرنسية',
+                title: 'الدرس الأول: التركيب النحوي',
+                titleFr: 'La configuration syntaxique',
+                description: 'تعلم التركيب النحوي في اللغة الفرنسية',
                 videoFile: 'content1.mp4',
                 objectives: [
                     'Identifier les différentes parties de la phrase (le sujet, le verbe, le complément).',
