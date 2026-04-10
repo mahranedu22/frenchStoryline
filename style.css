@@ -1296,6 +1296,81 @@ body::before {
     margin: 0;
     color: white;
 }
+.style-number-label {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+ 
+.style-label-title {
+    width: 100%;
+    margin-bottom: 6px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+ 
+.style-option-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+}
+ 
+.style-option-chip.visual {
+    color: #0b5ed7;
+    background: #eaf2ff;
+    border-color: #9ec5fe;
+}
+ 
+.style-option-chip.visual-high {
+    color: #084298;
+    background: #cfe2ff;
+    border-color: #6ea8fe;
+}
+ 
+.style-option-chip.auditory {
+    color: #0f5132;
+    background: #e9f7ef;
+    border-color: #8fd3a7;
+}
+ 
+.style-option-chip.auditory-high {
+    color: #0a3622;
+    background: #d1e7dd;
+    border-color: #75b798;
+}
+ 
+/* ====================================
+   STYLE NAME BADGE - أعلى اليمين (Desktop)
+   ==================================== */
+ 
+.style-name-badge {
+    position: fixed;
+    top: 12px;
+    right: 15px;
+    z-index: 99999;
+    background: linear-gradient(135deg, #2B5EA6, #1e4785);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 2px solid white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    pointer-events: none;
+    min-width: 120px;
+    text-align: center;
+}
+ 
+/* Hide mobile label on desktop */
+.style-name-label-mobile {
+    display: none;
+}
 /* ====================================
    RESPONSIVE DESIGN
    ==================================== */
@@ -1370,8 +1445,26 @@ body::before {
         min-height: 100vh;
         padding: 20px;
     }
+.style-name-badge {
+        display: none;
+    }
+.style-name-label-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: linear-gradient(135deg, #2B5EA6, #1e4785);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        border: 2px solid white;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        text-align: center;
+        min-height: 36px;
+    }
 }
-
 @media (max-width: 768px) {
     body {
         overflow-y: scroll;
