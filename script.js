@@ -196,6 +196,17 @@ function openLesson(lessonId) {
     switchLessonTab('objectives');
 }
 
+// Map style code to display name
+function getStyleName(code) {
+    const names = {
+        '111': 'النمط البصري',
+        '222': 'النمط السمعي',
+        '333': 'النمط السمعي المرتفع',
+        '444': 'النمط البصري المرتفع'
+    };
+    return names[code] || '';
+}
+
 /* ====================================
    LESSON TAB SWITCHING - التبديل بين تبويبات الدرس
    ==================================== */
@@ -221,6 +232,13 @@ function switchLessonTab(tabName) {
     };
     
     document.getElementById(buttonMap[tabName]).classList.add('active');
+    
+    // Show style name — top-right badge (desktop) + sidebar label (mobile)
+    const styleName = getStyleName(currentLearningStyle);
+    const badge = document.getElementById('styleNameLabel');
+    if (badge) badge.textContent = styleName;
+    const mobileLbl = document.getElementById('styleNameLabelMobile');
+    if (mobileLbl) mobileLbl.textContent = styleName;
     
     // Load content based on tab
     const contentArea = document.getElementById('mainContentArea');
@@ -249,7 +267,7 @@ function loadObjectivesContent(container) {
     const objectivesHTML = `
         <div class="objectives-content-container">
             <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: #FFD700; text-align: center; font-weight: bold;">
-                À la fin de cette leçon, l'élève sera capable de/d : </h3>
+                Résultats d'apprentissage : À la fin de cette leçon, Des élèves seront capables de/d :</h3>
             <ol style="list-style: decimal; padding-left: 30px; color: white; font-size: 1.15rem; line-height: 2.2;">
                 ${lesson.objectives.map(obj => `
                     <li style="margin-bottom: 18px; font-weight: 500;">${obj}</li>
@@ -267,7 +285,7 @@ function loadVideoContent(container) {
     
     let contentHTML = '';
     
-    // Check learning style
+    // Check learning style — 222 & 333 = audio, 111 & 444 = video
     if (currentLearningStyle === '222' || currentLearningStyle === '333') {
         // Audio only for style 222/333
         contentHTML = `
@@ -351,8 +369,9 @@ function submitLearningStyle() {
         return;
     }
     
-    if (styleCode !== '111' && styleCode !== '222') {
-        alert('نمط غير صحيح! يرجى إدخال 111 أو 222');
+    const validStyles = ['111', '222', '333', '444'];
+    if (!validStyles.includes(styleCode)) {
+        alert('رمز غير صحيح! يرجى إدخال الرمز السري الصحيح');
         return;
     }
     
