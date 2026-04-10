@@ -42,7 +42,7 @@
                         <p>Bienvenue, cher élève, dans votre parcours éducatif interactif, où vous trouverez un contenu adapté à vos capacités et qui suit vos progrès étape par étape.</p>
                     </div>
                     <button class="content-btn" onclick="showPage('modulesPage')">
-                        Le contenu éducatif
+                        Le contenu
                     </button>
                 </div>
                 
@@ -83,11 +83,13 @@
                 
                 <div class="form-group-style">
                     <label for="styleNumber" class="style-number-label">
-                        <span class="style-label-title">اختر رقم النمط:</span>
-                        <span class="style-option-chip visual">111 - نمط مرئي</span>
-                        <span class="style-option-chip auditory">222 - نمط سمعي</span>
+                        <span class="style-label-title">الرمز السري:</span>
+                        <span class="style-option-chip visual">نمط مرئي</span>
+                        <span class="style-option-chip visual-high">نمط مرئي مرتفع</span>
+                        <span class="style-option-chip auditory">نمط سمعي</span>
+                        <span class="style-option-chip auditory-high">نمط سمعي مرتفع</span>
                     </label>
-                    <input type="text" id="styleNumber" placeholder="اكتب 111 أو 222" class="style-input" maxlength="3">
+                    <input type="password" id="styleNumber" placeholder="أدخل الرمز السري" class="style-input" maxlength="3">
                 </div>
                 
                 <button class="btn btn-primary" onclick="submitLearningStyle()" style="margin-top: 30px; font-size: 1.4rem; padding: 18px 50px;">
@@ -127,6 +129,9 @@
          LESSON PAGE - صفحة الدرس
          ==================================== -->
     <div id="lessonPage" class="page">
+        <!-- Style Name Badge - top right on desktop, inside sidebar on mobile -->
+        <div class="style-name-badge" id="styleNameLabel"></div>
+
         <!-- Lesson Title ABOVE the board -->
         <div class="lesson-title-outside" id="lessonTitleOutside">
             <!-- Title will be set dynamically -->
@@ -142,14 +147,15 @@
 
             <!-- Sidebar Navigation -->
             <div class="lesson-sidebar">
+                <div class="style-name-label-mobile" id="styleNameLabelMobile"></div>
                 <button class="sidebar-btn" id="btnObjectives" onclick="switchLessonTab('objectives')">
-                    Les objectifs
+                    Résultats d'apprentissage
                 </button>
                 <button class="sidebar-btn" id="btnContent" onclick="switchLessonTab('content')">
                     Le contenu
                 </button>
                 <button class="sidebar-btn" id="btnActivities" onclick="switchLessonTab('activities')">
-                    les exersize
+                    Les exercices
                 </button>
                 
                 <button class="home-btn" onclick="goToHome()">
