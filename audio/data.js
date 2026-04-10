@@ -46,7 +46,7 @@ const modulesData = {
                     'Identifier les verbes du 1er groupe et reconnaître leur terminaison en -ER.',
                     'Conjuguer correctement les verbes réguliers du 1er groupe au présent de l\'indicatif.',
                     'Différencier entre le radical et les terminaisons du présent (-e, -es, -e, -ons, -ez, -ent).',
-                    'Produire des énoncés courts en utilisant un verbe du 1er groupe approprié selon le contexte.',
+                    'Écrire des énoncés courts en utilisant un verbe du 1er groupe approprié selon le contexte.',
                     'Conjuguer les verbes essentiels : être, avoir, aller, faire.'
                 ]
             }
@@ -70,7 +70,7 @@ const modulesData = {
                     'Identifier la notion des verbes pronominaux en langue française.',
                     'Distinguer entre le verbe simple et le verbe pronominal.',
                     'Reconnaître les pronoms utilisés avec les verbes pronominaux : me, te, se, nous, vous, se.',
-                    'Comprendre la structure du verbe pronominal : (pronom réfléchi + verbe).',
+                    'Reconnaître la structure du verbe pronominal : (pronom réfléchi + verbe).',
                     'Distinguer les types de verbes pronominaux : réfléchis, réciproques, essentiellement pronominaux.'
                 ]
             }
