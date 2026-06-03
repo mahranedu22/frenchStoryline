@@ -75,6 +75,79 @@ const modulesData = {
                 ]
             }
         ]
+    },
+    module4: {
+        id: 'module4',
+        title: 'الدرس الرابع',
+        titleFr: 'La ponctuation simple',
+        titleAr: 'الدرس الرابع: علامات الترقيم البسيطة',
+        description: 'علامات الترقيم البسيطة في اللغة الفرنسية',
+        audioFile: 'audio/module4.mp3',
+        lessons: [
+            {
+                id: 'lesson4',
+                title: 'الدرس الرابع: علامات الترقيم البسيطة',
+                titleFr: 'La ponctuation simple',
+                description: 'تعلم استخدام علامات الترقيم البسيطة',
+                videoFile: 'content4.mp4',
+                objectives: [
+                    'Utiliser correctement le point (.) à la fin d\'une phrase déclarative.',
+                    'Utiliser correctement le point d\'interrogation (?) à la fin d\'une phrase interrogative.',
+                    'Utiliser correctement le point d\'exclamation (!) à la fin d\'une phrase exclamative.',
+                    'Identifier le type de phrase selon le signe de ponctuation utilisé.',
+                    'Produire des phrases correctes avec les signes de ponctuation appropriés.'
+                ]
+            }
+        ]
+    },
+    module5: {
+        id: 'module5',
+        title: 'الدرس الخامس',
+        titleFr: 'La concordance sujet-verbe',
+        titleAr: 'الدرس الخامس: التوافق بين الفاعل والفعل',
+        description: 'التوافق بين الفاعل والفعل في زمن المضارع',
+        audioFile: 'audio/module5.mp3',
+        lessons: [
+            {
+                id: 'lesson5',
+                title: 'الدرس الخامس: التوافق بين الفاعل والفعل',
+                titleFr: 'La concordance sujet-verbe',
+                description: 'تعلم التوافق بين الفاعل والفعل في زمن المضارع',
+                videoFile: 'content5.mp4',
+                objectives: [
+                    'Identifier le sujet dans une phrase.',
+                    'Reconnaître le verbe au présent.',
+                    'Assurer la concordance entre le sujet et le verbe.',
+                    'Conjuguer correctement les verbes selon le sujet.',
+                    'Produire des phrases correctes à l\'écrit et à l\'oral.'
+                ]
+            }
+        ]
+    },
+    module6: {
+        id: 'module6',
+        title: 'الدرس السادس',
+        titleFr: 'Les articles définis, indéfinis et contractés',
+        titleAr: 'الدرس السادس: أدوات التعريف والتنكير',
+        description: 'أدوات التعريف والتنكير والمدموجة في اللغة الفرنسية',
+        audioFile: 'audio/module6.mp3',
+        lessons: [
+            {
+                id: 'lesson6',
+                title: 'الدرس السادس: أدوات التعريف والتنكير',
+                titleFr: 'Les articles définis, indéfinis et contractés',
+                description: 'تعلم أدوات التعريف والتنكير والمدموجة',
+                videoFile: 'content6.mp4',
+                objectives: [
+                    'Identifier les articles définis, indéfinis et contractés.',
+                    'Utiliser correctement les articles dans une phrase.',
+                    'Différencier entre le masculin, le féminin et le pluriel.',
+                    'Employer les articles selon le sens de la phrase.',
+                    'Éviter les erreurs fréquentes en français.',
+                    'Produire des phrases correctes à l\'oral et à l\'écrit.'
+                ]
+            }
+        ]
     }
 };
 
@@ -443,6 +516,395 @@ const exercisesData = {
                         question: 'Nous nous rencontrons',
                         options: ['réfléchi', 'réciproque'],
                         correct: 'réciproque'
+                    }
+                ]
+            }
+        ]
+    },
+
+    // تمارين الدرس الرابع
+    module4: {
+        visualHigh: [
+            {
+                id: 'ex1',
+                type: 'fill_blank',
+                title: 'أكمل بعلامة الترقيم المناسبة (. ? !)',
+                instruction: 'اختر علامة الترقيم الصحيحة',
+                questions: [
+                    {
+                        sentence: 'Où habites-tu _____',
+                        options: ['.', '?', '!'],
+                        correct: '?'
+                    },
+                    {
+                        sentence: 'Nous allons au cinéma _____',
+                        options: ['.', '?', '!'],
+                        correct: '.'
+                    },
+                    {
+                        sentence: 'Attention au bus _____',
+                        options: ['.', '?', '!'],
+                        correct: '!'
+                    },
+                    {
+                        sentence: 'Pourquoi es-tu en retard _____',
+                        options: ['.', '?', '!'],
+                        correct: '?'
+                    },
+                    {
+                        sentence: 'Bravo pour ton succès _____',
+                        options: ['.', '?', '!'],
+                        correct: '!'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'mcq',
+                title: 'حدد نوع الجملة',
+                questions: [
+                    {
+                        question: 'Tu viens avec nous ?',
+                        options: ['Phrase déclarative', 'Phrase interrogative', 'Phrase exclamative'],
+                        correct: 'Phrase interrogative'
+                    },
+                    {
+                        question: 'Quel beau paysage !',
+                        options: ['Phrase déclarative', 'Phrase interrogative', 'Phrase exclamative'],
+                        correct: 'Phrase exclamative'
+                    },
+                    {
+                        question: 'Nous avons un examen demain.',
+                        options: ['Phrase déclarative', 'Phrase interrogative', 'Phrase exclamative'],
+                        correct: 'Phrase déclarative'
+                    }
+                ]
+            }
+        ],
+        visualLow: [
+            {
+                id: 'ex1',
+                type: 'fill_blank',
+                title: 'أكمل بعلامة الترقيم المناسبة',
+                instruction: 'اختر . أو ? أو !',
+                questions: [
+                    {
+                        sentence: 'Où habites-tu _____',
+                        options: ['.', '?', '!'],
+                        correct: '?'
+                    },
+                    {
+                        sentence: 'Attention au bus _____',
+                        options: ['.', '?', '!'],
+                        correct: '!'
+                    },
+                    {
+                        sentence: 'Nous allons au cinéma _____',
+                        options: ['.', '?', '!'],
+                        correct: '.'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'mcq',
+                title: 'حدد نوع الجملة',
+                questions: [
+                    {
+                        question: 'Tu viens avec nous ?',
+                        options: ['Phrase déclarative', 'Phrase interrogative', 'Phrase exclamative'],
+                        correct: 'Phrase interrogative'
+                    },
+                    {
+                        question: 'Quel beau paysage !',
+                        options: ['Phrase déclarative', 'Phrase interrogative', 'Phrase exclamative'],
+                        correct: 'Phrase exclamative'
+                    }
+                ]
+            }
+        ]
+    },
+
+    // تمارين الدرس الخامس
+    module5: {
+        visualHigh: [
+            {
+                id: 'ex1',
+                type: 'fill_blank',
+                title: 'أكمل بالفعل المناسب',
+                instruction: 'اختر الفعل المصرف بشكل صحيح',
+                questions: [
+                    {
+                        sentence: 'Je _____ français. (parler)',
+                        options: ['parle', 'parles', 'parlons', 'parlent'],
+                        correct: 'parle'
+                    },
+                    {
+                        sentence: 'Nous _____ au club. (jouer)',
+                        options: ['joue', 'joues', 'jouons', 'jouent'],
+                        correct: 'jouons'
+                    },
+                    {
+                        sentence: 'Ils _____ la leçon. (écouter)',
+                        options: ['écoute', 'écoutes', 'écoutons', 'écoutent'],
+                        correct: 'écoutent'
+                    },
+                    {
+                        sentence: 'Tu _____ très bien. (chanter)',
+                        options: ['chante', 'chantes', 'chantons', 'chantent'],
+                        correct: 'chantes'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'mcq',
+                title: 'اختر الإجابة الصحيحة',
+                questions: [
+                    {
+                        question: 'Nous _____',
+                        options: ['mange', 'mangeons', 'mangent', 'manges'],
+                        correct: 'mangeons'
+                    },
+                    {
+                        question: 'Ils _____',
+                        options: ['joue', 'joues', 'jouent', 'jouons'],
+                        correct: 'jouent'
+                    },
+                    {
+                        question: 'Vous _____',
+                        options: ['parle', 'parles', 'parlons', 'parlez'],
+                        correct: 'parlez'
+                    }
+                ]
+            },
+            {
+                id: 'ex3',
+                type: 'mcq',
+                title: 'صحح الخطأ',
+                questions: [
+                    {
+                        question: 'Nous écoute la radio.',
+                        options: ['Nous écoutons la radio.', 'Nous écoutent la radio.', 'Nous écoutez la radio.', 'Nous écoutes la radio.'],
+                        correct: 'Nous écoutons la radio.'
+                    },
+                    {
+                        question: 'Ils parle français.',
+                        options: ['Ils parles français.', 'Ils parlons français.', 'Ils parlent français.', 'Ils parlez français.'],
+                        correct: 'Ils parlent français.'
+                    },
+                    {
+                        question: 'Je regardent la télévision.',
+                        options: ['Je regarde la télévision.', 'Je regardes la télévision.', 'Je regardons la télévision.', 'Je regardez la télévision.'],
+                        correct: 'Je regarde la télévision.'
+                    }
+                ]
+            },
+            {
+                id: 'ex4',
+                type: 'fill_blank',
+                title: 'أكمل الجمل',
+                instruction: 'أكمل بالفعل المناسب',
+                questions: [
+                    {
+                        sentence: 'Tu _____ à l\'école. (aller)',
+                        options: ['va', 'vas', 'allons', 'allez'],
+                        correct: 'vas'
+                    },
+                    {
+                        sentence: 'Nous _____ le français. (aimer)',
+                        options: ['aime', 'aimes', 'aimons', 'aiment'],
+                        correct: 'aimons'
+                    },
+                    {
+                        sentence: 'Elle _____ un livre. (regarder)',
+                        options: ['regarde', 'regardes', 'regardons', 'regardent'],
+                        correct: 'regarde'
+                    },
+                    {
+                        sentence: 'Vous _____ très vite. (marcher)',
+                        options: ['marche', 'marches', 'marchons', 'marchez'],
+                        correct: 'marchez'
+                    }
+                ]
+            }
+        ],
+        visualLow: [
+            {
+                id: 'ex1',
+                type: 'fill_blank',
+                title: 'أكمل بالفعل المناسب',
+                instruction: 'اختر الفعل المصرف بشكل صحيح',
+                questions: [
+                    {
+                        sentence: 'Je _____ français. (parler)',
+                        options: ['parle', 'parles', 'parlons', 'parlent'],
+                        correct: 'parle'
+                    },
+                    {
+                        sentence: 'Nous _____ au club. (jouer)',
+                        options: ['joue', 'joues', 'jouons', 'jouent'],
+                        correct: 'jouons'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'mcq',
+                title: 'صحح الخطأ',
+                questions: [
+                    {
+                        question: 'Nous écoute la radio.',
+                        options: ['Nous écoutons la radio.', 'Nous écoutent la radio.', 'Nous écoutez la radio.', 'Nous écoutes la radio.'],
+                        correct: 'Nous écoutons la radio.'
+                    },
+                    {
+                        question: 'Ils parle français.',
+                        options: ['Ils parles français.', 'Ils parlons français.', 'Ils parlent français.', 'Ils parlez français.'],
+                        correct: 'Ils parlent français.'
+                    }
+                ]
+            }
+        ]
+    },
+
+    // تمارين الدرس السادس
+    module6: {
+        visualHigh: [
+            {
+                id: 'ex1',
+                type: 'fill_blank',
+                title: 'اختر الأداة المناسبة',
+                instruction: 'اختر الأداة الصحيحة',
+                questions: [
+                    {
+                        sentence: '_____ garçon joue. (le / une / des)',
+                        options: ['le', 'une', 'des', 'la'],
+                        correct: 'le'
+                    },
+                    {
+                        sentence: 'J\'habite _____ Caire. (au / du / des)',
+                        options: ['au', 'du', 'des', 'aux'],
+                        correct: 'au'
+                    },
+                    {
+                        sentence: '_____ fille chante. (la / un / aux)',
+                        options: ['la', 'un', 'aux', 'le'],
+                        correct: 'la'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'mcq',
+                title: 'صنف الأداة',
+                questions: [
+                    {
+                        question: 'Le',
+                        options: ['défini', 'indéfini', 'contracté'],
+                        correct: 'défini'
+                    },
+                    {
+                        question: 'une',
+                        options: ['défini', 'indéfini', 'contracté'],
+                        correct: 'indéfini'
+                    },
+                    {
+                        question: 'aux',
+                        options: ['défini', 'indéfini', 'contracté'],
+                        correct: 'contracté'
+                    },
+                    {
+                        question: 'des',
+                        options: ['défini', 'indéfini', 'contracté'],
+                        correct: 'indéfini'
+                    }
+                ]
+            },
+            {
+                id: 'ex3',
+                type: 'fill_blank',
+                title: 'حوّل حسب النموذج: à + le → au',
+                instruction: 'اختر الأداة المدموجة الصحيحة',
+                questions: [
+                    {
+                        sentence: 'à + les = _____',
+                        options: ['aux', 'au', 'du', 'des'],
+                        correct: 'aux'
+                    },
+                    {
+                        sentence: 'de + le = _____',
+                        options: ['aux', 'au', 'du', 'des'],
+                        correct: 'du'
+                    },
+                    {
+                        sentence: 'de + les = _____',
+                        options: ['aux', 'au', 'du', 'des'],
+                        correct: 'des'
+                    }
+                ]
+            },
+            {
+                id: 'ex4',
+                type: 'mcq',
+                title: 'اختر الإجابة الصحيحة',
+                questions: [
+                    {
+                        question: 'Je vais _____ cinéma.',
+                        options: ['au', 'de la', 'une', 'du'],
+                        correct: 'au'
+                    },
+                    {
+                        question: '_____ élèves travaillent.',
+                        options: ['Les', 'Une', 'Un', 'du'],
+                        correct: 'Les'
+                    },
+                    {
+                        question: 'Elle achète _____ robe.',
+                        options: ['un', 'une', 'le', 'du'],
+                        correct: 'une'
+                    }
+                ]
+            }
+        ],
+        visualLow: [
+            {
+                id: 'ex1',
+                type: 'fill_blank',
+                title: 'اختر الأداة المناسبة',
+                instruction: 'اختر الأداة الصحيحة',
+                questions: [
+                    {
+                        sentence: '_____ garçon joue. (le / une / des)',
+                        options: ['le', 'une', 'des', 'la'],
+                        correct: 'le'
+                    },
+                    {
+                        sentence: 'J\'habite _____ Caire.',
+                        options: ['au', 'du', 'des', 'aux'],
+                        correct: 'au'
+                    },
+                    {
+                        sentence: '_____ fille chante.',
+                        options: ['la', 'un', 'aux', 'le'],
+                        correct: 'la'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'mcq',
+                title: 'اختر الإجابة الصحيحة',
+                questions: [
+                    {
+                        question: 'Je vais _____ cinéma.',
+                        options: ['au', 'de la', 'une', 'du'],
+                        correct: 'au'
+                    },
+                    {
+                        question: '_____ élèves travaillent.',
+                        options: ['Les', 'Une', 'Un', 'du'],
+                        correct: 'Les'
                     }
                 ]
             }

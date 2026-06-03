@@ -111,6 +111,12 @@ function playContentAudio() {
         audioFile = 'audio/content2.mp3';
     } else if (currentModuleId === 'module3') {
         audioFile = 'audio/content3.mp3';
+    } else if (currentModuleId === 'module4') {
+        audioFile = 'audio/content4.mp3';
+    } else if (currentModuleId === 'module5') {
+        audioFile = 'audio/content5.mp3';
+    } else if (currentModuleId === 'module6') {
+        audioFile = 'audio/content6.mp3';
     }
     
     currentAudio = new Audio(audioFile);
@@ -128,7 +134,7 @@ function loadModules() {
     const container = document.getElementById('modulesGrid');
     container.innerHTML = '';
     
-    // Create module buttons - all 3 modules are now active
+    // Create module buttons - all 6 modules are now active
     Object.keys(modulesData).forEach((key, index) => {
         const module = modulesData[key];
         const moduleNumber = index + 1;
@@ -136,34 +142,15 @@ function loadModules() {
         const moduleBtn = document.createElement('button');
         moduleBtn.className = 'module-button';
         
-        // Enable modules 1, 2, and 3
-        if (moduleNumber > 3) {
-            moduleBtn.disabled = true;
-        }
-        
         moduleBtn.innerHTML = `
             <div class="module-number">Leçon ${moduleNumber}</div>
             <div>${module.title}</div>
         `;
         
-        if (moduleNumber <= 3) {
-            moduleBtn.onclick = () => openModule(module.id);
-        }
+        moduleBtn.onclick = () => openModule(module.id);
         
         container.appendChild(moduleBtn);
     });
-    
-    // Add placeholders for modules 4, 5, 6
-    for (let i = 4; i <= 6; i++) {
-        const placeholderBtn = document.createElement('button');
-        placeholderBtn.className = 'module-button';
-        placeholderBtn.disabled = true;
-        placeholderBtn.innerHTML = `
-            <div class="module-number">Leçon ${i}</div>
-            <div>الدرس ${['الرابع', 'الخامس', 'السادس'][i-4]}</div>
-        `;
-        container.appendChild(placeholderBtn);
-    }
 }
 
 function openModule(moduleId) {
@@ -301,7 +288,7 @@ function loadVideoContent(container) {
                         اضغط على أيقونة السماعة للاستماع للمحتوى
                     </p>
                     <audio controls class="audio-player" id="contentAudioPlayer" style="display: none;">
-                        <source src="audio/content${currentModuleId === 'module1' ? '1' : currentModuleId === 'module2' ? '2' : '3'}.mp3" type="audio/mpeg">
+                        <source src="audio/content${currentModuleId.replace('module', '')}.mp3" type="audio/mpeg">
                         المتصفح لا يدعم تشغيل الصوت
                     </audio>
                 </div>
