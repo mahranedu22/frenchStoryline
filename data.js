@@ -148,6 +148,72 @@ const modulesData = {
                 ]
             }
         ]
+    },
+    module7: {
+        id: 'module7',
+        title: 'الدرس السابع',
+        titleFr: 'Le genre (masculin/féminin) et le nombre (singulier/pluriel)',
+        titleAr: 'الدرس السابع: الجنس والعدد',
+        description: 'الجنس (مذكر/مؤنث) والعدد (مفرد/جمع) في اللغة الفرنسية',
+        audioFile: 'audio/module7.mp3',
+        lessons: [
+            {
+                id: 'lesson7',
+                title: 'الدرس السابع: الجنس والعدد',
+                titleFr: 'Le genre (masculin/féminin) et le nombre (singulier/pluriel)',
+                description: 'تعلم الجنس والعدد في اللغة الفرنسية',
+                videoFile: 'content7.mp4',
+                objectives: [
+                    'Identifier le genre (masculin ou féminin) d\'un nom à partir de sa terminaison ou de son déterminant.',
+                    'Formuler le féminin des noms en appliquant les règles régulières et en maîtrisant les principales exceptions.',
+                    'Reconnaître le nombre (singulier ou pluriel) d\'un groupe nominal.',
+                    'Appliquer les marques du pluriel (orthographiques et phonétiques) selon la morphologie du mot.',
+                    'Accorder correctement les déterminants en genre et en nombre avec le nom qu\'ils introduisent.'
+                ]
+            }
+        ]
+    },
+    module8: {
+        id: 'module8',
+        title: 'الدرس الثامن',
+        titleFr: 'Les adjectifs qualificatifs',
+        titleAr: 'الدرس الثامن: الصفات الوصفية',
+        description: 'الصفات الوصفية والاتفاق في الجنس والعدد',
+        audioFile: 'audio/module8.mp3',
+        lessons: [
+            {
+                id: 'lesson8',
+                title: 'الدرس الثامن: الصفات الوصفية',
+                titleFr: 'Les adjectifs qualificatifs',
+                description: 'تعلم الصفات الوصفية واتفاقها في الجنس والعدد',
+                videoFile: 'content8.mp4',
+                objectives: [
+                    'Identifier l\'adjectif qualificatif dans une phrase.',
+                    'Comprendre et appliquer la règle générale de l\'accord en genre (masculin/féminin) et en nombre (singulier/pluriel).',
+                    'Maîtriser les principales exceptions et cas particuliers de l\'accord des adjectifs.'
+                ]
+            }
+        ]
+    },
+    module9: {
+        id: 'module9',
+        title: 'الدرس التاسع',
+        titleFr: 'Leçon 9',
+        titleAr: 'الدرس التاسع',
+        description: 'محتوى الدرس التاسع',
+        audioFile: 'audio/module9.mp3',
+        lessons: [
+            {
+                id: 'lesson9',
+                title: 'الدرس التاسع',
+                titleFr: 'Leçon 9',
+                description: 'محتوى الدرس التاسع',
+                videoFile: 'content9.mp4',
+                objectives: [
+                    'Suivre le contenu de la leçon 9.'
+                ]
+            }
+        ]
     }
 };
 
@@ -905,6 +971,303 @@ const exercisesData = {
                         question: '_____ élèves travaillent.',
                         options: ['Les', 'Une', 'Un', 'du'],
                         correct: 'Les'
+                    }
+                ]
+            }
+        ]
+    },
+
+    // تمارين الدرس السابع
+    module7: {
+        visualHigh: [
+            {
+                id: 'ex1',
+                type: 'mcq',
+                title: 'صنّف الكلمات إلى مذكر / مؤنث',
+                instruction: 'Classe les mots en masculin / féminin',
+                questions: [
+                    {
+                        question: 'une maison',
+                        options: ['Masculin', 'Féminin'],
+                        correct: 'Féminin'
+                    },
+                    {
+                        question: 'un stylo',
+                        options: ['Masculin', 'Féminin'],
+                        correct: 'Masculin'
+                    },
+                    {
+                        question: 'une voiture',
+                        options: ['Masculin', 'Féminin'],
+                        correct: 'Féminin'
+                    },
+                    {
+                        question: 'un cahier',
+                        options: ['Masculin', 'Féminin'],
+                        correct: 'Masculin'
+                    },
+                    {
+                        question: 'une école',
+                        options: ['Masculin', 'Féminin'],
+                        correct: 'Féminin'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'fill_blank',
+                title: 'حوّل إلى الجمع',
+                instruction: 'Transformez au Pluriel',
+                questions: [
+                    {
+                        sentence: 'Le gâteau → _____',
+                        options: ['Les gâteaux', 'Des gâteaux', 'Le gâteaux', 'Les gâteau'],
+                        correct: 'Les gâteaux'
+                    },
+                    {
+                        sentence: 'Une montre → _____',
+                        options: ['Des montres', 'Les montres', 'Des montre', 'Une montres'],
+                        correct: 'Des montres'
+                    },
+                    {
+                        sentence: 'Le repas → _____',
+                        options: ['Les repas', 'Des repas', 'Le repas', 'Un repas'],
+                        correct: 'Les repas'
+                    },
+                    {
+                        sentence: 'Un cheval → _____',
+                        options: ['Des chevaux', 'Les chevaux', 'Des cheval', 'Un chevaux'],
+                        correct: 'Des chevaux'
+                    }
+                ]
+            },
+            {
+                id: 'ex3',
+                type: 'fill_blank',
+                title: 'أكمل',
+                instruction: 'Complète avec la forme correcte de l\'adjectif',
+                questions: [
+                    {
+                        sentence: 'un garçon _____ (petit)',
+                        options: ['petit', 'petite', 'petits', 'petites'],
+                        correct: 'petit'
+                    },
+                    {
+                        sentence: 'une fille _____ (petit)',
+                        options: ['petite', 'petit', 'petits', 'petites'],
+                        correct: 'petite'
+                    },
+                    {
+                        sentence: 'des garçons _____ (grand)',
+                        options: ['grands', 'grand', 'grande', 'grandes'],
+                        correct: 'grands'
+                    },
+                    {
+                        sentence: 'des filles _____ (grand)',
+                        options: ['grandes', 'grand', 'grande', 'grands'],
+                        correct: 'grandes'
+                    }
+                ]
+            }
+        ],
+        visualLow: [
+            {
+                id: 'ex1',
+                type: 'mcq',
+                title: 'صنّف الكلمات إلى مذكر / مؤنث',
+                instruction: 'Classe les mots en masculin / féminin',
+                questions: [
+                    {
+                        question: 'un stylo',
+                        options: ['Masculin', 'Féminin'],
+                        correct: 'Masculin'
+                    },
+                    {
+                        question: 'une maison',
+                        options: ['Masculin', 'Féminin'],
+                        correct: 'Féminin'
+                    },
+                    {
+                        question: 'un cahier',
+                        options: ['Masculin', 'Féminin'],
+                        correct: 'Masculin'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'fill_blank',
+                title: 'حوّل إلى الجمع',
+                instruction: 'Transformez au Pluriel',
+                questions: [
+                    {
+                        sentence: 'Le gâteau → _____',
+                        options: ['Les gâteaux', 'Des gâteaux', 'Le gâteaux', 'Les gâteau'],
+                        correct: 'Les gâteaux'
+                    },
+                    {
+                        sentence: 'Un cheval → _____',
+                        options: ['Des chevaux', 'Les chevaux', 'Des cheval', 'Un chevaux'],
+                        correct: 'Des chevaux'
+                    }
+                ]
+            },
+            {
+                id: 'ex3',
+                type: 'fill_blank',
+                title: 'أكمل',
+                instruction: 'Complète avec la forme correcte de l\'adjectif',
+                questions: [
+                    {
+                        sentence: 'un garçon _____ (petit)',
+                        options: ['petit', 'petite', 'petits', 'petites'],
+                        correct: 'petit'
+                    },
+                    {
+                        sentence: 'une fille _____ (petit)',
+                        options: ['petite', 'petit', 'petits', 'petites'],
+                        correct: 'petite'
+                    }
+                ]
+            }
+        ]
+    },
+
+    // تمارين الدرس الثامن
+    module8: {
+        visualHigh: [
+            {
+                id: 'ex1',
+                type: 'fill_blank',
+                title: 'صَرِّف الصِّفة بما يناسب الاسم',
+                instruction: 'Accorde l\'adjectif',
+                questions: [
+                    {
+                        sentence: 'un garçon (petit) → _____',
+                        options: ['petit', 'petite', 'petits', 'petites'],
+                        correct: 'petit'
+                    },
+                    {
+                        sentence: 'une fille (grand) → _____',
+                        options: ['grande', 'grand', 'grands', 'grandes'],
+                        correct: 'grande'
+                    },
+                    {
+                        sentence: 'des élèves (intelligent) → _____',
+                        options: ['intelligents', 'intelligent', 'intelligente', 'intelligentes'],
+                        correct: 'intelligents'
+                    },
+                    {
+                        sentence: 'des voitures (rouge) → _____',
+                        options: ['rouges', 'rouge', 'grands', 'grandes'],
+                        correct: 'rouges'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'fill_blank',
+                title: 'ضع في صيغة المؤنث',
+                instruction: 'Mets au féminin',
+                questions: [
+                    {
+                        sentence: 'intelligent → _____',
+                        options: ['intelligente', 'intelligent', 'intelligents', 'intelligentes'],
+                        correct: 'intelligente'
+                    },
+                    {
+                        sentence: 'petit → _____',
+                        options: ['petite', 'petit', 'petits', 'petites'],
+                        correct: 'petite'
+                    },
+                    {
+                        sentence: 'grand → _____',
+                        options: ['grande', 'grand', 'grands', 'grandes'],
+                        correct: 'grande'
+                    },
+                    {
+                        sentence: 'rouge → _____',
+                        options: ['rouge', 'rouges', 'grande', 'grand'],
+                        correct: 'rouge'
+                    }
+                ]
+            },
+            {
+                id: 'ex3',
+                type: 'fill_blank',
+                title: 'ضع في صيغة الجمع',
+                instruction: 'Mets au pluriel',
+                questions: [
+                    {
+                        sentence: 'une fille intelligente → _____',
+                        options: ['des filles intelligentes', 'des fille intelligentes', 'une filles intelligentes', 'des filles intelligent'],
+                        correct: 'des filles intelligentes'
+                    },
+                    {
+                        sentence: 'un garçon petit → _____',
+                        options: ['des garçons petits', 'des garçon petits', 'un garçons petits', 'des garçons petit'],
+                        correct: 'des garçons petits'
+                    },
+                    {
+                        sentence: 'une voiture rouge → _____',
+                        options: ['des voitures rouges', 'des voiture rouges', 'une voitures rouges', 'des voitures rouge'],
+                        correct: 'des voitures rouges'
+                    }
+                ]
+            }
+        ],
+        visualLow: [
+            {
+                id: 'ex1',
+                type: 'fill_blank',
+                title: 'صَرِّف الصِّفة بما يناسب الاسم',
+                instruction: 'Accorde l\'adjectif',
+                questions: [
+                    {
+                        sentence: 'un garçon (petit) → _____',
+                        options: ['petit', 'petite', 'petits', 'petites'],
+                        correct: 'petit'
+                    },
+                    {
+                        sentence: 'une fille (grand) → _____',
+                        options: ['grande', 'grand', 'grands', 'grandes'],
+                        correct: 'grande'
+                    }
+                ]
+            },
+            {
+                id: 'ex2',
+                type: 'fill_blank',
+                title: 'ضع في صيغة المؤنث',
+                instruction: 'Mets au féminin',
+                questions: [
+                    {
+                        sentence: 'intelligent → _____',
+                        options: ['intelligente', 'intelligent', 'intelligents', 'intelligentes'],
+                        correct: 'intelligente'
+                    },
+                    {
+                        sentence: 'petit → _____',
+                        options: ['petite', 'petit', 'petits', 'petites'],
+                        correct: 'petite'
+                    }
+                ]
+            },
+            {
+                id: 'ex3',
+                type: 'fill_blank',
+                title: 'ضع في صيغة الجمع',
+                instruction: 'Mets au pluriel',
+                questions: [
+                    {
+                        sentence: 'une fille intelligente → _____',
+                        options: ['des filles intelligentes', 'des fille intelligentes', 'une filles intelligentes', 'des filles intelligent'],
+                        correct: 'des filles intelligentes'
+                    },
+                    {
+                        sentence: 'un garçon petit → _____',
+                        options: ['des garçons petits', 'des garçon petits', 'un garçons petits', 'des garçons petit'],
+                        correct: 'des garçons petits'
                     }
                 ]
             }

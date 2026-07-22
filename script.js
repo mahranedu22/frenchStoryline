@@ -117,6 +117,12 @@ function playContentAudio() {
         audioFile = 'audio/content5.mp3';
     } else if (currentModuleId === 'module6') {
         audioFile = 'audio/content6.mp3';
+    } else if (currentModuleId === 'module7') {
+        audioFile = 'audio/content7.mp3';
+    } else if (currentModuleId === 'module8') {
+        audioFile = 'audio/content8.mp3';
+    } else if (currentModuleId === 'module9') {
+        audioFile = 'audio/content9.mp3';
     }
     
     currentAudio = new Audio(audioFile);
