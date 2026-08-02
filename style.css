@@ -652,8 +652,29 @@ body::before {
 }
 
 .module-button:disabled {
-    opacity: 0.5;
+    opacity: 1;
     cursor: not-allowed;
+    transform: none;
+    filter: grayscale(0.35);
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.42), 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.module-button.unavailable {
+    position: relative;
+    overflow: hidden;
+}
+
+.module-unavailable-label {
+    position: relative;
+    z-index: 2;
+    margin-top: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .module-number {

@@ -144,16 +144,25 @@ function loadModules() {
     Object.keys(modulesData).forEach((key, index) => {
         const module = modulesData[key];
         const moduleNumber = index + 1;
+        const isUnavailable = module.id === 'module9';
         
         const moduleBtn = document.createElement('button');
         moduleBtn.className = 'module-button';
         
+        if (isUnavailable) {
+            moduleBtn.classList.add('unavailable');
+            moduleBtn.disabled = true;
+        }
+        
         moduleBtn.innerHTML = `
             <div class="module-number">Leçon ${moduleNumber}</div>
             <div>${module.title}</div>
+            ${isUnavailable ? '<span class="module-unavailable-label">غير متاح حالياً</span>' : ''}
         `;
         
-        moduleBtn.onclick = () => openModule(module.id);
+        if (!isUnavailable) {
+            moduleBtn.onclick = () => openModule(module.id);
+        }
         
         container.appendChild(moduleBtn);
     });
